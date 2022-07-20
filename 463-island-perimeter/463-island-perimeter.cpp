@@ -3,6 +3,8 @@ public:
     int islandPerimeter(vector<vector<int>>& grid) {
         int n = grid.size();
         int m = grid[0].size();
+        if (n == 1 && m == 1)
+            return 4;
         int ans = 0;
         vector<int> v(n*m);
         for (int i = 0; i < n; i++) {
