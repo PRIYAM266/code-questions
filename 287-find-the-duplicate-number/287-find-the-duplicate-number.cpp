@@ -6,11 +6,12 @@ public:
         cout.tie(nullptr);
         
         int n = nums.size();
-        vector<bool> arr(n+1);
         for (int i = 0; i < n; i++) {
-            if (arr[nums[i]])
-                return nums[i];
-            arr[nums[i]] = true;
+            if (nums[abs(nums[i]) - 1] < 0) {
+                return abs(nums[i]);
+            }
+            else 
+                nums[abs(nums[i]) - 1] *= -1;
         }
         return -1;
     }
