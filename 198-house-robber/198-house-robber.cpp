@@ -1,13 +1,17 @@
 class Solution {
 public:
     int rob(vector<int>& arr) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
+        
         int n = arr.size();
         if (n == 1) {
-        return arr[0];
-    }
-    if (n == 2) {
-        return max(arr[0], arr[1]);
-    }
+            return arr[0];
+        }
+        if (n == 2) {
+            return max(arr[0], arr[1]);
+        }
         vector<int> output(n);
         output[0] = arr[0];
         output[1] = max(arr[0], arr[1]);
