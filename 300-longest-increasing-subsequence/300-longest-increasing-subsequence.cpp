@@ -1,6 +1,9 @@
 class Solution {
 public:
     int lengthOfLIS(vector<int>& arr) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         int n = arr.size();
         int ans = 1;
         vector<int> increase(n, 1);
