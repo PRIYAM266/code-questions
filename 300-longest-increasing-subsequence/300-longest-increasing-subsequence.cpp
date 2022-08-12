@@ -2,8 +2,10 @@ class Solution {
 public:
     int lengthOfLIS(vector<int>& arr) {
         int n = arr.size();
-        vector<int> increase(n, 1);
+        int increase[n];
+        increase[0] = 1;
         for (int i = 1; i < n; i++) {
+            increase[i] = 1;
             for (int j = i-1; j >= 0; j--) {
                 if (arr[j] >= arr[i])
                     continue;
