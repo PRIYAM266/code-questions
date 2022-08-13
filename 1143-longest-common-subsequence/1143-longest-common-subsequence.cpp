@@ -17,9 +17,7 @@ public:
     // }
     
     int lcsI(string &s1, string &s2, int &n1, int &n2) {
-        ios_base::sync_with_stdio(0);
-        cin.tie(nullptr);
-        cout.tie(nullptr);
+        
         vector<vector<int>> dp(n1+1, vector<int>(n2+1));
         for (int i = 1; i <= n1; i++) {
             for (int j = 1; j <= n2; j++) {
@@ -34,6 +32,9 @@ public:
     }
         
     int longestCommonSubsequence(string text1, string text2) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         int n1 = text1.size(), n2 = text2.size();
         // vector<vector<int>> dp(n1, vector<int>(n2, -1));
         // return lcs(text1, text2, n1, n2, 0, 0, dp);
