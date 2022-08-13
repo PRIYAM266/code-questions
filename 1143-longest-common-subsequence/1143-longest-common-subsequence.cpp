@@ -17,6 +17,9 @@ public:
     // }
     
     int lcsI(string &s1, string &s2, int &n1, int &n2) {
+        ios_base::sync_with_stdio(0);
+        cin.tie(nullptr);
+        cout.tie(nullptr);
         vector<vector<int>> dp(n1+1, vector<int>(n2+1));
         for (int i = 1; i <= n1; i++) {
             for (int j = 1; j <= n2; j++) {
