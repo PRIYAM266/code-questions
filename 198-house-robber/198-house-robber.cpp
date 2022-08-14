@@ -9,15 +9,17 @@ public:
         if (n == 2) {
             return max(arr[0], arr[1]);
         }
-        vector<int> dp(n);
-        dp[0] = arr[0];
-        dp[1] = max(arr[0], arr[1]);
+        // vector<int> dp(n);
+        int prev2 = arr[0];
+        int prev1 = max(arr[0], arr[1]);
         for (int i = 2; i < n; i++) {
-            int take = dp[i-2] + arr[i];
-            int not_take = 0 + dp[i-1];
-            dp[i] = max(take, not_take);
+            int take = prev2 + arr[i];
+            int not_take = 0 + prev1;
+            int curr = max(take, not_take);
+            prev2 = prev1;
+            prev1 = curr;
         }
     
-        return dp[n-1];
+        return prev1;
     }
 };
