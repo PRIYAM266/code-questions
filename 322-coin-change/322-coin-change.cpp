@@ -8,12 +8,12 @@ public:
         }
         if (dp[i][amount] != -1)
             return dp[i][amount];
+        
+        int not_pick = 0 + f(i-1, amount, coins, dp);
         int pick = 1e8;
         if (coins[i] <= amount) {
             pick = 1 + f(i, amount - coins[i], coins, dp);
         }
-        int not_pick = 0 + f(i-1, amount, coins, dp);
-        
         return dp[i][amount] = min(pick, not_pick);
     }
     
