@@ -26,12 +26,28 @@ public:
         return dp[n][n];
     }
     
+    int f2(string &text1, int i, int j, vector<vector<int>> &dp)
+    {
+        if(i > j)  
+            return 0;
+        if(i == j) 
+            return 1;
+        if(dp[i][j] != -1)   
+            return dp[i][j];
+        
+        if(text1[i] == text1[j])  
+            return dp[i][j] = 2 + f2(text1,i+1,j-1,dp);
+         
+        return dp[i][j] = max(f2(text1,i+1,j,dp),f2(text1,i,j-1,dp));
+    }
+    
     int longestPalindromeSubseq(string s) {
         int n = s.size();
-        string st = s;
-        reverse(s.begin(), s.end());
-        vector<vector<int>> dp(n, vector<int>(n, 0));
+        // string st = s;
+        // reverse(s.begin(), s.end());
+        vector<vector<int>> dp(n, vector<int>(n, -1));
         // return f(n-1, n-1, st, s, dp);
-        return f1(n, st, s);
+        // return f1(n, st, s);
+        return f2(s, 0, n-1, dp);
     }
 };
