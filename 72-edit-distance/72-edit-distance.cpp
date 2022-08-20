@@ -8,10 +8,10 @@ public:
         
         if (s1[i-1] == s2[j-1])
             return f(i-1, j-1, s1, s2, dp);
-        int insert = 1 + f(i, j-1, s1, s2, dp);
-        int del = 1 + f(i-1, j, s1, s2, dp);
-        int replace = 1 + f(i-1, j-1, s1, s2, dp);
-        return dp[i][j] = min(min(insert, del), replace);
+        int insert = f(i, j-1, s1, s2, dp);
+        int del = f(i-1, j, s1, s2, dp);
+        int replace = f(i-1, j-1, s1, s2, dp);
+        return dp[i][j] = 1 + min(min(insert, del), replace);
     }
     
     int minDistance(string word1, string word2) {
