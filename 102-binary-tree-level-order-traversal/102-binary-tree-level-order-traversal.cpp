@@ -12,6 +12,9 @@
 class Solution {
 public:
     vector<vector<int>> levelOrder(TreeNode* root) {
+        ios_base::sync_with_stdio(0);
+    	cin.tie(nullptr);
+
         vector<vector<int>> ans;
         if (root == NULL)
             return ans;
