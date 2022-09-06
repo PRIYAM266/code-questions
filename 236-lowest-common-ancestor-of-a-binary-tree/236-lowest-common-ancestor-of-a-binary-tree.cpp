@@ -10,8 +10,6 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        ios_base::sync_with_stdio(0);
-    	cin.tie(nullptr);
     	
         if (root == NULL || root == p || root == q)
             return root;
@@ -25,6 +23,6 @@ public:
         else if (left == NULL)
             return right;
         
-        return root;
+        return root; // both left ans right are not null
     }
 };
