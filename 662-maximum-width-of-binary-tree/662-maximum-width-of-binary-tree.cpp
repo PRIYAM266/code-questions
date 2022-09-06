@@ -22,25 +22,27 @@ public:
         queue<pair<TreeNode*, int>> q;
         q.push({root, 0});
         while(!q.empty()) {
-            int curMin = q.front().second;
+            
             int n = q.size();
-            int leftMost, rightMost;
+            
+            int leftMost = q.front().second;
+            int rightMost = q.back().second;
+            
+            width = max(width, rightMost - leftMost + 1);
+            
             for (int i = 0; i < n; i++) {
                 pair<TreeNode*, int> tmp = q.front();
                 q.pop();
                 TreeNode* node = tmp.first;
-                int curId = tmp.second - curMin;
-                if (i == 0)
-                    leftMost = curId;
-                if (i == n - 1)
-                    rightMost = curId;
+                int curId = tmp.second - leftMost;
+                
                 
                 if (node->left)
                     q.push({node->left, (long long) 2 * curId + 1});
                 if (node->right)
                     q.push({node->right, (long long) 2 * curId + 2});
             }
-            width = max(width, rightMost - leftMost + 1);
+            
         }
         return width;
     }
