@@ -11,23 +11,23 @@
  */
 class Solution {
 public:
-    
-    void path(TreeNode* node, string curr, vector<string>& v) {
+    vector<string> v;
+    void path(TreeNode* node, string curr) {
         if (node->left == NULL && node->right == NULL) {
             curr += to_string(node->val);
             v.push_back(curr);
         }
         curr += to_string(node->val);
         if (node->left)
-            path(node->left, curr, v);
+            path(node->left, curr);
         if (node->right)
-            path(node->right, curr, v);
+            path(node->right, curr);
     }
     
     int sumNumbers(TreeNode* root) {
-        vector<string> v;
+        // vector<string> v;
         string curr = "";
-        path(root, curr, v);
+        path(root, curr);
         int ans = 0;
         for (int i = 0; i < v.size(); i++) {
             ans += stoi(v[i]);
