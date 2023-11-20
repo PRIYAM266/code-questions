@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+    
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
         ListNode *first = l1, *second = l2;
         int sum = first->val + second->val;
@@ -43,6 +44,7 @@ public:
             curr = curr->next;
             second = second->next;
         }
+        
         if (carry) {
             curr->next = new ListNode(carry);
         }
