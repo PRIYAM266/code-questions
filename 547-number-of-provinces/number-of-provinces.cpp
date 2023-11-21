@@ -5,7 +5,7 @@ public:
         vector<vector<int>> adj(n+1);
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (matrix[i][j]) {
+                if (i != j && matrix[i][j]) {
                     adj[i+1].push_back(j+1);
                 }
             }
@@ -31,7 +31,6 @@ public:
                 dfs(i, adj, vis);
             }
         }
-
         return ans;
     }
 };
