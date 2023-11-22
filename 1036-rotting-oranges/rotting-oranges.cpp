@@ -19,10 +19,11 @@ public:
                         vis[nrow][ncol] == 1 && grid[nrow][ncol] == 1) {
                             q.push({{nrow, ncol}, t + 1});
                             vis[nrow][ncol] = 2;
-                        }
+                    }
                 }
             }
-        }
+    }
+    
     int orangesRotting(vector<vector<int>>& grid) {
         int m = grid.size(), n = grid[0].size();
         vector<vector<int>> vis(m, vector<int>(n));
