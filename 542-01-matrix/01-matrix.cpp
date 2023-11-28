@@ -1,6 +1,8 @@
 class Solution {
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>>& mat) {
+        ios_base::sync_with_stdio(0);
+        
         int m = mat.size();
         int n = mat[0].size();
         vector<vector<int>> vis(m, vector<int>(n)), dis(m, vector<int>(n));
