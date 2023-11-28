@@ -1,11 +1,12 @@
 class Solution {
 public:
+    int delrow[4] = {-1, 0, 1, 0};
+    int delcol[4] = {0, -1, 0, 1};
+
     void dfs(vector<vector<char>>& board, vector<vector<int>>& vis, int row, int col) {
         vis[row][col] = 1;
         int m = board.size();
         int n = board[0].size();
-        int delrow[] = {-1, 0, 1, 0};
-        int delcol[] = {0, -1, 0, 1};
         for (int i = 0; i < 4; i++) {
             int nrow = row + delrow[i];
             int ncol = col + delcol[i];
