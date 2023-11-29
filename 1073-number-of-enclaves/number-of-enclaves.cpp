@@ -20,23 +20,17 @@ public:
         int m = grid.size();
         int n = grid[0].size();
         vector<vector<int>> vis(m, vector<int>(n));
-        for (int j = 0; j < n; j++) { // horizontal 
-            if (grid[0][j]) {
-                dfs(grid, vis, 0, j);
-            }
-            if (grid[m-1][j]) {
-                dfs(grid, vis, m-1, j);
-            }
-        }
-        for (int i = 0; i < m; i++) { // vertical
-            if (grid[i][0]) {
-                dfs(grid, vis, i, 0);
-            }
-            if (grid[i][n-1]) {
-                dfs(grid, vis, i, n-1);
-            }
-        }
         int count = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0 || i == m-1 || j == n-1) {
+                    if (grid[i][j]) {
+                        dfs(grid, vis, i, j);
+                    }
+                }
+            }
+        }
+        
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1 && vis[i][j] == 0)
