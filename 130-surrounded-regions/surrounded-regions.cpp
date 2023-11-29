@@ -21,18 +21,18 @@ public:
         int n = board[0].size();
         vector<vector<int>> vis(m, vector<int>(n));
         for (int j= 0; j < n; j++) { //horizontal
-            if (!vis[0][j] && board[0][j] == 'O') {
+            if (board[0][j] == 'O') {
                 dfs(board, vis, 0, j);
             }
-            if (!vis[m-1][j] && board[m-1][j] == 'O') {
+            if (board[m-1][j] == 'O') {
                 dfs(board, vis, m-1, j);
             }
         }
         for (int i = 0; i < m; i++) { //vertical
-            if (!vis[i][0] && board[i][0] == 'O') {
+            if (board[i][0] == 'O') {
                 dfs(board, vis, i, 0);
             }
-            if (!vis[i][n-1] && board[i][n-1] == 'O') {
+            if (board[i][n-1] == 'O') {
                 dfs(board, vis, i, n-1);
             }
         }
